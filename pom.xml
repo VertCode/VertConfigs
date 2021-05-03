@@ -17,7 +17,6 @@
     </properties>
 
     <build>
-        <finalName>InfusedLibrary-Shared</finalName>
         <defaultGoal>clean package</defaultGoal>
         <plugins>
             <plugin>
