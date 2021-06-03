@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Setter
 public class VertConfig {
 
-    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
     private final String path;
     private final File file;
     private JsonObject jsonObject;
@@ -249,7 +249,7 @@ public class VertConfig {
      */
     public void save() throws IOException {
         Writer writer = new FileWriter(this.file);
-        gson.toJson(gson.fromJson(this.jsonObject.toString(), JsonObject.class), writer);
+        gson.toJson(this.jsonObject, writer);
         writer.flush();
         writer.close();
     }
@@ -276,10 +276,7 @@ public class VertConfig {
         JsonObject value = this.jsonObject;
         for (Object key : keys) {
             value = (JsonObject) value.get(String.valueOf(key));
-
-            if (value == null) {
-                return null;
-            }
+            if (value == null) return null;
         }
         return ((Class<T>) Object.class).cast(value);
     }
