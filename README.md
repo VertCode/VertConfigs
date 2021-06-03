@@ -10,7 +10,7 @@ VertConfig strives to provide a clean and easy to use JSON config api.
 
 ## Download
 
-**Last Stable Version:** `1.0.0`
+**Last Stable Version:** `1.0.1`
 
 **Maven**
 
